@@ -9,12 +9,15 @@ seq = "7316717653133062491922511967442657474235534919493496983520312774506326239
 
 def largest_product_in_series(seq: str) -> int:
     max_prod = 0
-    
+
+    # extract 13 digits and move one digit at a time til reaching the end of the series
     for i in range(len(seq) - 13):
         digits = seq[i:i+13]
         if '0' in digits:
             continue     # skip adjacent digits with 0 to avoid wasting time
         product = 1
+
+        # loop over each digit in the 13-digit window, multiply the digits, check if product is the largest, then update maximum if needed
         for d in digits:
             product *= int(d)
         if product > max_prod:
