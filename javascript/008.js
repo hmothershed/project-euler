@@ -9,10 +9,11 @@ const seq = "7316717653133062491922511967442657474235534919493496983520312774506
 
 function largestProductInSeries(series, windowSize){
     let maxProd = 0;
-    
+
+    // extract 13 digits, move one at a time, then repeat until it reaches the end of the number
     for (let i = 0; i <= series.length - windowSize; i++){
         let digits = series.slice(i, i + windowSize);
-        if (digits.includes('0')) continue;
+        if (digits.includes('0')) continue;    // if any digit in that group has 0, skip calculating the product
         
         // loop over each digit in the 13-digit window, multiply the digits, check if product is the largest, then update maximum if needed
         let product = 1;
