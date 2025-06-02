@@ -72,7 +72,7 @@ for i in range(20):
                     "product": product
                 }
         # diagonal up-right need 3 up 3 down (from i)
-        if i <= 3 and j <= 16:
+        if i >= 3 and j <= 16:
             nums = [grid[i-k][j+k] for k in range(4)]
             product = nums[0] * nums[1] * nums[2] * nums[3]
             if product > max_product:
